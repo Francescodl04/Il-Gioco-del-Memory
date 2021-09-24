@@ -21,5 +21,23 @@ namespace MemoryApp
         {
 
         }
+
+        private void arancioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(bluToolStripMenuItem.Checked==true)
+            {
+                bluToolStripMenuItem.Checked = false;
+            }
+            else if (gialloToolStripMenuItem.Checked == true)
+            {
+                gialloToolStripMenuItem.Checked = false;
+            }
+            else if (verdeToolStripMenuItem.Checked == true)
+            {
+                verdeToolStripMenuItem.Checked = false;
+            }
+            tessera1Btn.BackgroundImage = Properties.Resources.punto_domanda_arancio;
+            tessera2Btn.BackgroundImage = Properties.Resources.punto_domanda_arancio;
+        }
     }
 }
