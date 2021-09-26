@@ -86,5 +86,38 @@
   <ItemGroup>
     <None Include="Resources\punto_domanda_blu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\punto_domanda_giallo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\punto_domanda_verde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calla.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\campanelle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\girasole.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lavanda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\margherita.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rosa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stella_alpina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tulipano.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfondo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

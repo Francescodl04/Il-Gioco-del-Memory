@@ -118,13 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="punto_domanda_blu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\punto_domanda_blu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="punto_domanda_arancio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\punto_domanda_arancio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="punto_domanda_blu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\punto_domanda_blu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="girasole" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\girasole.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="punto_domanda_verde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\punto_domanda_verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="punto_domanda_blu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\punto_domanda_blu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rosa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rosa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lavanda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lavanda.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tulipano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tulipano.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="campanelle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\campanelle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="margherita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\margherita.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stella_alpina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stella_alpina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="punto_domanda_giallo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\punto_domanda_giallo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sfondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sfondo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
