@@ -17,4 +17,5 @@ C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S.
 C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S. 2021-2022\Informatica\Programma Memory C#\MemoryApp\MemoryApp\obj\Debug\MemoryApp.csproj.CoreCompileInputs.cache
 C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S. 2021-2022\Informatica\Programma Memory C#\MemoryApp\MemoryApp\obj\Debug\MemoryApp.exe
 C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S. 2021-2022\Informatica\Programma Memory C#\MemoryApp\MemoryApp\obj\Debug\MemoryApp.pdb
-C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S. 2021-2022\Informatica\Programma Memory C#\MemoryApp\MemoryApp\obj\Debug\MemoryApp.Form.resources
+C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S. 2021-2022\Informatica\Programma Memory C#\MemoryApp\MemoryApp\obj\Debug\MemoryApp.FormGioco.resources
+C:\Users\Famiglia Di Lena\Documents\Scuola\Secondaria di Secondo Grado\IV F A.S. 2021-2022\Informatica\Programma Memory C#\MemoryApp\MemoryApp\obj\Debug\MemoryApp.FormIniziale.resources
