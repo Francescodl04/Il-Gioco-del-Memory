@@ -213,6 +213,7 @@ namespace MemoryApp
             this.informazioniSulGiocoToolStripMenuItem.Name = "informazioniSulGiocoToolStripMenuItem";
             this.informazioniSulGiocoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.informazioniSulGiocoToolStripMenuItem.Text = "Informazioni sul gioco...";
+            this.informazioniSulGiocoToolStripMenuItem.Click += new System.EventHandler(this.informazioniSulGiocoToolStripMenuItem_Click);
             // 
             // tessera1Btn
             // 
