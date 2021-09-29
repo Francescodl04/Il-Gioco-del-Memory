@@ -40,15 +40,19 @@ namespace MemoryApp
             this.unoGiocatoreRBtn = new System.Windows.Forms.RadioButton();
             this.dueGiocatoriRBtn = new System.Windows.Forms.RadioButton();
             this.opzioniPanel = new System.Windows.Forms.Panel();
-            this.giocaBtn = new System.Windows.Forms.Button();
-            this.nomeG1TBox = new System.Windows.Forms.TextBox();
             this.nomeG2TBox = new System.Windows.Forms.TextBox();
+            this.nomeG1TBox = new System.Windows.Forms.TextBox();
+            this.giocaBtn = new System.Windows.Forms.Button();
             this.indicazioniGiocoTTip = new System.Windows.Forms.ToolTip(this.components);
+            this.erroreInserimentoG1EProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erroreInserimentoG2EProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tesseraGialloPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraArancioPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraVerdePBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraBluPBox)).BeginInit();
             this.opzioniPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erroreInserimentoG1EProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroreInserimentoG2EProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // logoLabel
@@ -156,29 +160,6 @@ namespace MemoryApp
             this.opzioniPanel.Size = new System.Drawing.Size(363, 81);
             this.opzioniPanel.TabIndex = 49;
             // 
-            // giocaBtn
-            // 
-            this.giocaBtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.giocaBtn.Location = new System.Drawing.Point(277, 151);
-            this.giocaBtn.Name = "giocaBtn";
-            this.giocaBtn.Size = new System.Drawing.Size(363, 33);
-            this.giocaBtn.TabIndex = 50;
-            this.giocaBtn.Text = "Gioca!";
-            this.giocaBtn.UseVisualStyleBackColor = true;
-            this.giocaBtn.Click += new System.EventHandler(this.giocaBtn_Click);
-            // 
-            // nomeG1TBox
-            // 
-            this.nomeG1TBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomeG1TBox.Location = new System.Drawing.Point(16, 45);
-            this.nomeG1TBox.MaxLength = 10;
-            this.nomeG1TBox.Name = "nomeG1TBox";
-            this.nomeG1TBox.Size = new System.Drawing.Size(143, 22);
-            this.nomeG1TBox.TabIndex = 49;
-            this.nomeG1TBox.Text = "Nome G1";
-            this.indicazioniGiocoTTip.SetToolTip(this.nomeG1TBox, "Inserisci qui il tuo nome, giocatore 1. lasciare lo spazio vuoto oppure inserire " +
-        "G1.");
-            // 
             // nomeG2TBox
             // 
             this.nomeG2TBox.Enabled = false;
@@ -191,12 +172,52 @@ namespace MemoryApp
             this.nomeG2TBox.Text = "G2";
             this.indicazioniGiocoTTip.SetToolTip(this.nomeG2TBox, "Inserisci qui il tuo nome, giocatore 2. Non lasciare lo spazio vuoto oppure inser" +
         "ire G2.");
+            this.nomeG2TBox.Click += new System.EventHandler(this.nomeG2TBox_Click);
+            this.nomeG2TBox.TextChanged += new System.EventHandler(this.nomeG2TBox_TextChanged);
+            // 
+            // nomeG1TBox
+            // 
+            this.nomeG1TBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeG1TBox.Location = new System.Drawing.Point(16, 45);
+            this.nomeG1TBox.MaxLength = 10;
+            this.nomeG1TBox.Name = "nomeG1TBox";
+            this.nomeG1TBox.Size = new System.Drawing.Size(143, 22);
+            this.nomeG1TBox.TabIndex = 49;
+            this.nomeG1TBox.Text = "Nome G1";
+            this.indicazioniGiocoTTip.SetToolTip(this.nomeG1TBox, "Inserisci qui il tuo nome, giocatore 1. lasciare lo spazio vuoto oppure inserire " +
+        "G1.");
+            this.nomeG1TBox.Click += new System.EventHandler(this.nomeG1TBox_Click);
+            this.nomeG1TBox.TextChanged += new System.EventHandler(this.nomeG1TBox_TextChanged);
+            // 
+            // giocaBtn
+            // 
+            this.giocaBtn.Enabled = false;
+            this.giocaBtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.giocaBtn.Location = new System.Drawing.Point(277, 151);
+            this.giocaBtn.Name = "giocaBtn";
+            this.giocaBtn.Size = new System.Drawing.Size(363, 33);
+            this.giocaBtn.TabIndex = 50;
+            this.giocaBtn.Text = "Gioca!";
+            this.giocaBtn.UseVisualStyleBackColor = true;
+            this.giocaBtn.Click += new System.EventHandler(this.giocaBtn_Click);
             // 
             // indicazioniGiocoTTip
             // 
             this.indicazioniGiocoTTip.AutoPopDelay = 5000;
             this.indicazioniGiocoTTip.InitialDelay = 100;
             this.indicazioniGiocoTTip.ReshowDelay = 100;
+            // 
+            // erroreInserimentoG1EProvider
+            // 
+            this.erroreInserimentoG1EProvider.BlinkRate = 500;
+            this.erroreInserimentoG1EProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.erroreInserimentoG1EProvider.ContainerControl = this;
+            // 
+            // erroreInserimentoG2EProvider
+            // 
+            this.erroreInserimentoG2EProvider.BlinkRate = 500;
+            this.erroreInserimentoG2EProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.erroreInserimentoG2EProvider.ContainerControl = this;
             // 
             // FormIniziale
             // 
@@ -219,12 +240,15 @@ namespace MemoryApp
             this.Name = "FormIniziale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Benvenuto!";
+            this.Load += new System.EventHandler(this.FormIniziale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tesseraGialloPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraArancioPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraVerdePBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraBluPBox)).EndInit();
             this.opzioniPanel.ResumeLayout(false);
             this.opzioniPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erroreInserimentoG1EProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroreInserimentoG2EProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,5 +268,7 @@ namespace MemoryApp
         private System.Windows.Forms.TextBox nomeG2TBox;
         private System.Windows.Forms.TextBox nomeG1TBox;
         private System.Windows.Forms.ToolTip indicazioniGiocoTTip;
+        private System.Windows.Forms.ErrorProvider erroreInserimentoG1EProvider;
+        private System.Windows.Forms.ErrorProvider erroreInserimentoG2EProvider;
     }
 }

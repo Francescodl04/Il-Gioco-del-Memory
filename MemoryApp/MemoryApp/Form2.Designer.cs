@@ -29,9 +29,11 @@ namespace MemoryApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGioco));
             this.barraStrumentiTStrip = new System.Windows.Forms.ToolStrip();
             this.partitaTSDDButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tornaAlMenuInizialeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chiudiIlGiocoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visualizzazioneTSDDButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.setCarteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +71,7 @@ namespace MemoryApp
             this.rimescolaTessereBtn = new System.Windows.Forms.Button();
             this.rimescolaTessereLabel = new System.Windows.Forms.Label();
             this.tessera2Btn = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.barraStrumentiTStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraGialloPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraArancioPBox)).BeginInit();
@@ -95,6 +98,7 @@ namespace MemoryApp
             // 
             this.partitaTSDDButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.partitaTSDDButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tornaAlMenuInizialeToolStripMenuItem,
             this.chiudiIlGiocoToolStripMenuItem});
             this.partitaTSDDButton.Image = ((System.Drawing.Image)(resources.GetObject("partitaTSDDButton.Image")));
             this.partitaTSDDButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -105,11 +109,19 @@ namespace MemoryApp
             this.partitaTSDDButton.Text = "Partita";
             this.partitaTSDDButton.ToolTipText = "Permette di cambiare le impostazioni della partita";
             // 
+            // tornaAlMenuInizialeToolStripMenuItem
+            // 
+            this.tornaAlMenuInizialeToolStripMenuItem.Name = "tornaAlMenuInizialeToolStripMenuItem";
+            this.tornaAlMenuInizialeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.tornaAlMenuInizialeToolStripMenuItem.Text = "Torna al menu iniziale";
+            this.tornaAlMenuInizialeToolStripMenuItem.Click += new System.EventHandler(this.tornaAlMenuInizialeToolStripMenuItem_Click);
+            // 
             // chiudiIlGiocoToolStripMenuItem
             // 
             this.chiudiIlGiocoToolStripMenuItem.Name = "chiudiIlGiocoToolStripMenuItem";
-            this.chiudiIlGiocoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.chiudiIlGiocoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.chiudiIlGiocoToolStripMenuItem.Text = "Chiudi il gioco";
+            this.chiudiIlGiocoToolStripMenuItem.Click += new System.EventHandler(this.chiudiIlGiocoToolStripMenuItem_Click);
             // 
             // visualizzazioneTSDDButton
             // 
@@ -393,7 +405,7 @@ namespace MemoryApp
             // tesseraArancioPBox
             // 
             this.tesseraArancioPBox.Image = global::MemoryApp.Properties.Resources.punto_domanda_arancio;
-            this.tesseraArancioPBox.Location = new System.Drawing.Point(778, 63);
+            this.tesseraArancioPBox.Location = new System.Drawing.Point(779, 64);
             this.tesseraArancioPBox.Name = "tesseraArancioPBox";
             this.tesseraArancioPBox.Size = new System.Drawing.Size(50, 49);
             this.tesseraArancioPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -424,12 +436,13 @@ namespace MemoryApp
             // 
             this.indicatoreAbbinamentiLabel.BackColor = System.Drawing.Color.AliceBlue;
             this.indicatoreAbbinamentiLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.indicatoreAbbinamentiLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.indicatoreAbbinamentiLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
             this.indicatoreAbbinamentiLabel.Location = new System.Drawing.Point(589, 249);
             this.indicatoreAbbinamentiLabel.Name = "indicatoreAbbinamentiLabel";
             this.indicatoreAbbinamentiLabel.Size = new System.Drawing.Size(241, 219);
             this.indicatoreAbbinamentiLabel.TabIndex = 36;
-            this.indicatoreAbbinamentiLabel.Text = "Tessere abbinate correttamente\r\n\r\nG1: 0 \r\nG2:  0 ";
+            this.indicatoreAbbinamentiLabel.Text = "Benvenuti nel gioco!\r\n\r\nUn attimo e sarà il caso a decidere chi comincerà per pri" +
+    "mo!";
             this.indicatoreAbbinamentiLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // logoLabel
@@ -476,6 +489,11 @@ namespace MemoryApp
             this.tessera2Btn.TabIndex = 2;
             this.tessera2Btn.UseVisualStyleBackColor = true;
             this.tessera2Btn.Click += new System.EventHandler(this.tessera2Btn_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 2000;
             // 
             // FormGioco
             // 
@@ -569,6 +587,8 @@ namespace MemoryApp
         private System.Windows.Forms.ToolStripDropDownButton partitaTSDDButton;
         private System.Windows.Forms.ToolStripMenuItem chiudiIlGiocoToolStripMenuItem;
         private System.Windows.Forms.Button tessera2Btn;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ToolStripMenuItem tornaAlMenuInizialeToolStripMenuItem;
     }
 }
 

@@ -19,14 +19,20 @@ namespace MemoryApp
     public partial class FormGioco : Form
     {
         Tessere OperazioniTessere = new Tessere();
-        public FormGioco()
+        string[] nomiGiocatore = new string[2];
+        public FormGioco(string [] nomiGiocatori)
         {
             InitializeComponent();
+            for (int i = 0; i < nomiGiocatori.Length; i++)
+            {
+                nomiGiocatore[i] = nomiGiocatori[i];
+            }
         }
 
         private void FormGioco_Load(object sender, EventArgs e)
         {
             OperazioniTessere.GeneraTessereCasuali();
+            indicatoreAbbinamentiLabel.Text = $"Coppie di tessere abbinate correttamente:\n\n{nomiGiocatore[0]}: 0\n{nomiGiocatore[1]}: 0";
         }
 
         private void bluToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,6 +187,20 @@ namespace MemoryApp
         private void informazioniSulGiocoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Il gioco del Memory.\n\nVersione di test 0.1 .\nVersione .NET Framework 4.7.2 \nTutti i diritti riservati a Rasvenburger.", "Informazioni sul gioco...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void tornaAlMenuInizialeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var conferma = MessageBox.Show("Sei sicuro di voler ritornare al menu principale?\nOgni progresso non salvato verrà perso.", "Torna al menu principale", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (conferma == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+        }
+
+        private void chiudiIlGiocoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
     public class Tessere
