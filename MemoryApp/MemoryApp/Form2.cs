@@ -5,12 +5,8 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,21 +14,40 @@ namespace MemoryApp
 {
     public partial class FormGioco : Form
     {
-        Tessere OperazioniTessere = new Tessere();
-        string[] nomiGiocatore = new string[2];
-        public FormGioco(string [] nomiGiocatori)
+        Gioco OperazioniTessere = new Gioco();
+        int GiocatoreTurno = 0;
+        string[,] datiGiocatori = new string[2, 2];
+        Random NumeroCasuale = new Random();
+        Button primaTessera = null, secondaTessera = null;
+        Image SfondoTesseraNascosta = Properties.Resources.punto_domanda_blu;
+        int uno, due;
+        public FormGioco(string [,] datiGiocatori)
         {
             InitializeComponent();
-            for (int i = 0; i < nomiGiocatori.Length; i++)
-            {
-                nomiGiocatore[i] = nomiGiocatori[i];
-            }
+            this.datiGiocatori = datiGiocatori;
         }
 
         private void FormGioco_Load(object sender, EventArgs e)
         {
             OperazioniTessere.GeneraTessereCasuali();
-            indicatoreAbbinamentiLabel.Text = $"Coppie di tessere abbinate correttamente:\n\n{nomiGiocatore[0]}: 0\n{nomiGiocatore[1]}: 0";
+            Attendi();
+        }
+
+        public async void Attendi()
+        {
+            await Task.Delay(3000);
+            int n = NumeroCasuale.Next(0, 2);
+            switch (n)
+            {
+                case (0):
+                    GiocatoreTurno = 0;
+                    break;
+                case (1):
+                    GiocatoreTurno = 1;
+                    break;
+            }
+            indicatoreTurniLabel.Text = $"Il primo a giocare è { datiGiocatori[GiocatoreTurno, 0]}.";
+            indicatoreAbbinamentiLabel.Text = $"Abbinamenti corretti:\n {datiGiocatori[0,0] }: 0\n {datiGiocatori[1, 0]}: 0 ";
         }
 
         private void bluToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,7 +76,7 @@ namespace MemoryApp
 
         public void DisattivaSelezione(int n)
         {
-            Button[] tessere = new Button[] { tessera1Btn, tessera2Btn, tessera3Btn, tessera4Btn, tessera5Btn, tessera6Btn, tessera7Btn, tessera8Btn, tessera9Btn, tessera10Btn, tessera11Btn, tessera12Btn, tessera13Btn, tessera14Btn, tessera15Btn, tessera16Btn };
+            Button[] tessere = new Button[] { tessera0Btn, tessera1Btn, tessera2Btn, tessera3Btn, tessera4Btn, tessera5Btn, tessera6Btn, tessera7Btn, tessera8Btn, tessera9Btn, tessera10Btn, tessera11Btn, tessera12Btn, tessera13Btn, tessera14Btn, tessera15Btn };
             bluToolStripMenuItem.Checked = false;
             arancioToolStripMenuItem.Checked = false;
             gialloToolStripMenuItem.Checked = false;
@@ -73,110 +88,169 @@ namespace MemoryApp
                 {
                     case 0:
                             tessere[i].BackgroundImage = Properties.Resources.punto_domanda_blu;
+                            SfondoTesseraNascosta = Properties.Resources.punto_domanda_blu;
                             logoLabel.BackColor = Color.AliceBlue;
+                            indicatoreTurniLabel.BackColor = Color.AliceBlue;
                             indicatoreAbbinamentiLabel.BackColor = Color.AliceBlue;
                             rimescolaTessereLabel.BackColor= Color.AliceBlue;
                             break;
                     case 1:
                             tessere[i].BackgroundImage = Properties.Resources.punto_domanda_arancio;
+                            SfondoTesseraNascosta = Properties.Resources.punto_domanda_arancio;
                             logoLabel.BackColor = Color.SeaShell;
+                            indicatoreTurniLabel.BackColor = Color.SeaShell;
                             indicatoreAbbinamentiLabel.BackColor = Color.SeaShell;
                             rimescolaTessereLabel.BackColor = Color.SeaShell;
                             break;
                     case 2:
                             tessere[i].BackgroundImage = Properties.Resources.punto_domanda_giallo;
+                            SfondoTesseraNascosta = Properties.Resources.punto_domanda_giallo;
                             logoLabel.BackColor = Color.Cornsilk;
+                            indicatoreTurniLabel.BackColor = Color.Cornsilk;
                             indicatoreAbbinamentiLabel.BackColor = Color.Cornsilk;
                             rimescolaTessereLabel.BackColor = Color.Cornsilk;
                             break;
                     case 3:
                             tessere[i].BackgroundImage = Properties.Resources.punto_domanda_verde;
+                            SfondoTesseraNascosta = Properties.Resources.punto_domanda_verde;
                             logoLabel.BackColor = Color.Honeydew;
+                            indicatoreTurniLabel.BackColor = Color.Honeydew;
                             indicatoreAbbinamentiLabel.BackColor = Color.Honeydew;
                             rimescolaTessereLabel.BackColor = Color.Honeydew;
                             break;
                 }
             }
         }
+        private void tessera0Btn_Click(object sender, EventArgs e)
+        {
+            MostraImmagineTessera(0, tessera0Btn);
+        }
 
         private void tessera1Btn_Click(object sender, EventArgs e)
         {
-            tessera1Btn.BackgroundImage = OperazioniTessere.TessereFloreali[0];
+            MostraImmagineTessera(1, tessera1Btn);
         }
 
         private void tessera2Btn_Click(object sender, EventArgs e)
         {
-            tessera2Btn.BackgroundImage = OperazioniTessere.TessereFloreali[1];
+            MostraImmagineTessera(2, tessera2Btn);
         }
 
         private void tessera3Btn_Click(object sender, EventArgs e)
         {
-            tessera3Btn.BackgroundImage = OperazioniTessere.TessereFloreali[2];
+            MostraImmagineTessera(3, tessera3Btn);
         }
 
         private void tessera4Btn_Click(object sender, EventArgs e)
         {
-            tessera4Btn.BackgroundImage = OperazioniTessere.TessereFloreali[3];
+            MostraImmagineTessera(4, tessera4Btn);
         }
 
         private void tessera5Btn_Click(object sender, EventArgs e)
         {
-            tessera5Btn.BackgroundImage = OperazioniTessere.TessereFloreali[4];
+            MostraImmagineTessera(5, tessera5Btn);
         }
 
         private void tessera6Btn_Click(object sender, EventArgs e)
         {
-            tessera6Btn.BackgroundImage = OperazioniTessere.TessereFloreali[5];
+            MostraImmagineTessera(6, tessera6Btn);
         }
 
         private void tessera7Btn_Click(object sender, EventArgs e)
         {
-            tessera7Btn.BackgroundImage = OperazioniTessere.TessereFloreali[6];
+            MostraImmagineTessera(7, tessera7Btn);
         }
 
         private void tessera8Btn_Click(object sender, EventArgs e)
         {
-            tessera8Btn.BackgroundImage = OperazioniTessere.TessereFloreali[7];
+            MostraImmagineTessera(8, tessera8Btn);
         }
 
         private void tessera9Btn_Click(object sender, EventArgs e)
         {
-            tessera9Btn.BackgroundImage = OperazioniTessere.TessereFloreali[8];
+            MostraImmagineTessera(9, tessera9Btn);
         }
 
         private void tessera10Btn_Click(object sender, EventArgs e)
         {
-            tessera10Btn.BackgroundImage = OperazioniTessere.TessereFloreali[9];
+            MostraImmagineTessera(10, tessera10Btn);
         }
 
         private void tessera11Btn_Click(object sender, EventArgs e)
         {
-            tessera11Btn.BackgroundImage = OperazioniTessere.TessereFloreali[10];
+            MostraImmagineTessera(11, tessera11Btn);
         }
 
         private void tessera12Btn_Click(object sender, EventArgs e)
         {
-            tessera12Btn.BackgroundImage = OperazioniTessere.TessereFloreali[11];
+            MostraImmagineTessera(12, tessera12Btn);
         }
 
         private void tessera13Btn_Click(object sender, EventArgs e)
         {
-            tessera13Btn.BackgroundImage = OperazioniTessere.TessereFloreali[12];
+            MostraImmagineTessera(13, tessera13Btn);
         }
 
         private void tessera14Btn_Click(object sender, EventArgs e)
         {
-            tessera14Btn.BackgroundImage = OperazioniTessere.TessereFloreali[13];
+            MostraImmagineTessera(14, tessera14Btn);
         }
 
         private void tessera15Btn_Click(object sender, EventArgs e)
         {
-            tessera15Btn.BackgroundImage = OperazioniTessere.TessereFloreali[14];
+            MostraImmagineTessera(15, tessera15Btn);
         }
 
-        private void tessera16Btn_Click(object sender, EventArgs e)
+        public void MostraImmagineTessera(int numeroTessera, Button tessera)
         {
-            tessera16Btn.BackgroundImage = OperazioniTessere.TessereFloreali[15];
+            tessera.BackgroundImage = OperazioniTessere.TessereGirate[numeroTessera];
+            tessera.Enabled = false;
+            if (primaTessera == null)
+            {
+                primaTessera = tessera;
+                uno = numeroTessera;
+            }
+            else
+            {
+                secondaTessera = tessera;
+                due = numeroTessera;
+                ConfermaAbbinamento();
+            }
+        }
+
+        public void ConfermaAbbinamento()
+        {
+            if (OperazioniTessere.idCarte[uno] == OperazioniTessere.idCarte[due]) 
+            {
+                Thread.Sleep(750);
+                primaTessera.Visible = false;
+                secondaTessera.Visible = false;
+                int n = Convert.ToInt32(datiGiocatori[GiocatoreTurno, 1]);
+                n++;
+                datiGiocatori[GiocatoreTurno, 1] = Convert.ToString(n);
+                indicatoreAbbinamentiLabel.Text = $"Abbinamenti corretti:\n {datiGiocatori[0, 0]}: {datiGiocatori[0, 1]}\n {datiGiocatori[1, 0]}: {datiGiocatori[1, 1]} ";
+
+            }
+            else
+            {
+                Thread.Sleep(750);
+                primaTessera.BackgroundImage = SfondoTesseraNascosta;
+                secondaTessera.BackgroundImage = SfondoTesseraNascosta;
+                primaTessera.Enabled = true;
+                secondaTessera.Enabled = true;
+                switch(GiocatoreTurno)
+                {
+                    case (0):
+                        GiocatoreTurno = 1;
+                        break;
+                    case (1):
+                        GiocatoreTurno = 0;
+                        break;
+                }
+                indicatoreTurniLabel.Text = $"{datiGiocatori[GiocatoreTurno, 0]}, è il tuo turno!";
+            }
+            primaTessera = null;
+            secondaTessera = null;
         }
 
         private void FormGioco_FormClosed(object sender, FormClosedEventArgs e)
@@ -186,7 +260,7 @@ namespace MemoryApp
 
         private void informazioniSulGiocoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Il gioco del Memory.\n\nVersione di test 0.1 .\nVersione .NET Framework 4.7.2 \nTutti i diritti riservati a Rasvenburger.", "Informazioni sul gioco...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Il gioco del Memory.\n\nVersione di test.\nVersione .NET Framework 4.7.2 \nTutti i diritti riservati a Rasvenburger.", "Informazioni sul gioco...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void tornaAlMenuInizialeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -202,15 +276,56 @@ namespace MemoryApp
         {
             Application.Exit();
         }
+
+        private void fioriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void animaliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvvisoCambioSetCarte();
+        }
+
+        private void mezziDiTrasportoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvvisoCambioSetCarte();
+        }
+
+
+        private void monumentiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvvisoCambioSetCarte();
+        }
+
+        public void AvvisoCambioSetCarte()
+        {
+            MessageBox.Show("Le modifiche verranno applicate al prossimo turno di gioco.", "Cambio set carte", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
     }
-    public class Tessere
+    public class Gioco
     {
-        public Image[] TessereFloreali = new Image[16];
+        public int[] idCarte = new int[16];
+        public Image[] TessereGirate = new Image[16];
+        Random NumeroCasuale = new Random();
+        public void GeneraPrimoGiocatore()
+        {
+            int numeroGenerato= NumeroCasuale.Next(0, 2);
+            switch(numeroGenerato)
+            {
+                case (0):
+
+                    break;
+                case (1):
+                    break;
+
+            }
+        }
         public void GeneraTessereCasuali()
         {
-            Random NumeroCasuale = new Random();
             int[] ContatoreCollisioni = new int[8];
-            for (int i = 0; i < TessereFloreali.Length; i++)
+            for (int i = 0; i < TessereGirate.Length; i++)
             {
                 int numeroGenerato = NumeroCasuale.Next(0, 8);
                 switch (numeroGenerato)
@@ -218,7 +333,8 @@ namespace MemoryApp
                     case (0):
                         if (ContatoreCollisioni[0] < 2) 
                         {
-                            TessereFloreali[i] = Properties.Resources.calla;
+                            TessereGirate[i] = Properties.Resources.calla;
+                            idCarte[i] = 0;
                             ContatoreCollisioni[0]++;
                         }
                         else
@@ -229,7 +345,8 @@ namespace MemoryApp
                     case (1):
                         if (ContatoreCollisioni[1] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.campanelle;
+                            TessereGirate[i] = Properties.Resources.campanelle;
+                            idCarte[i] = 1;
                             ContatoreCollisioni[1]++;
                         }
                         else
@@ -240,7 +357,8 @@ namespace MemoryApp
                     case (2):
                         if (ContatoreCollisioni[2] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.girasole;
+                            TessereGirate[i] = Properties.Resources.girasole;
+                            idCarte[i] = 2;
                             ContatoreCollisioni[2]++;
                         }
                         else
@@ -251,7 +369,8 @@ namespace MemoryApp
                     case (3):
                         if (ContatoreCollisioni[3] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.lavanda;
+                            TessereGirate[i] = Properties.Resources.lavanda;
+                            idCarte[i] = 3;
                             ContatoreCollisioni[3]++;
                         }
                         else
@@ -262,7 +381,8 @@ namespace MemoryApp
                     case (4):
                         if (ContatoreCollisioni[4] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.margherita;
+                            TessereGirate[i] = Properties.Resources.margherita;
+                            idCarte[i] = 4;
                             ContatoreCollisioni[4]++;
                         }
                         else
@@ -273,7 +393,8 @@ namespace MemoryApp
                     case (5):
                         if (ContatoreCollisioni[5] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.rosa;
+                            TessereGirate[i] = Properties.Resources.rosa;
+                            idCarte[i] = 5;
                             ContatoreCollisioni[5]++;
                         }
                         else
@@ -284,7 +405,8 @@ namespace MemoryApp
                     case (6):
                         if (ContatoreCollisioni[6] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.stella_alpina;
+                            TessereGirate[i] = Properties.Resources.stella_alpina;
+                            idCarte[i] = 6;
                             ContatoreCollisioni[6]++;
                         }
                         else
@@ -295,7 +417,8 @@ namespace MemoryApp
                     case (7):
                         if (ContatoreCollisioni[7] < 2)
                         {
-                            TessereFloreali[i] = Properties.Resources.tulipano;
+                            TessereGirate[i] = Properties.Resources.tulipano;
+                            idCarte[i] = 7;
                             ContatoreCollisioni[7]++;
                         }
                         else
@@ -305,6 +428,10 @@ namespace MemoryApp
                         break;
                 }
             }
+        }
+        public void DisponimentoTessere()
+        {
+
         }
     }
 }

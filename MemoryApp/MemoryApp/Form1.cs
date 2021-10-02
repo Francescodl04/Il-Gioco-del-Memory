@@ -5,20 +5,13 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MemoryApp
 {
     public partial class FormIniziale : Form
     {
-        string[] nomiGiocatori = new string[2] { "", "G2" };
+        string[,] datiGiocatori = new string[2, 2] { { "G1", "0" }, { "G2", "0" } };
         public FormIniziale()
         {
             InitializeComponent();
@@ -31,7 +24,7 @@ namespace MemoryApp
 
         private void giocaBtn_Click(object sender, EventArgs e)
         {
-            Form FormGioco = new FormGioco(nomiGiocatori);
+            Form FormGioco = new FormGioco(datiGiocatori);
             this.Hide();
             FormGioco.Show();
         }
@@ -39,7 +32,7 @@ namespace MemoryApp
         {
             nomeG2TBox.Enabled = false;
             nomeG2TBox.Text = "G2";
-            nomiGiocatori[1] = nomeG2TBox.Text;
+            datiGiocatori[1,0] = nomeG2TBox.Text;
             erroreInserimentoG2EProvider.Clear();
         }
 
@@ -57,7 +50,7 @@ namespace MemoryApp
 
         private void nomeG1TBox_TextChanged(object sender, EventArgs e)
         {
-            nomiGiocatori[0] = nomeG1TBox.Text;
+            datiGiocatori[0,0] = nomeG1TBox.Text;
             VerificaErroriInserimentoTextBox();
         }
 
@@ -69,7 +62,7 @@ namespace MemoryApp
 
         private void nomeG2TBox_TextChanged(object sender, EventArgs e)
         {
-            nomiGiocatori[1] = nomeG2TBox.Text;
+            datiGiocatori[1,0] = nomeG2TBox.Text;
             VerificaErroriInserimentoTextBox();
         }
 
@@ -86,7 +79,7 @@ namespace MemoryApp
             }
             for (int i = 0; i < indice; i++) 
             {
-                if (nomiGiocatori[i] == "" ||  nomiGiocatori[i] == "G1" || nomiGiocatori[i] == "G2" || nomiGiocatori[i].Contains(" "))
+                if (datiGiocatori[i, 0] == "" || datiGiocatori[i, 0] == "G1" || datiGiocatori[i, 0] == "G2" || datiGiocatori[i, 0].Contains(" ")) 
                 {
                     giocaBtn.Enabled = false;
                     if (i == 0)
