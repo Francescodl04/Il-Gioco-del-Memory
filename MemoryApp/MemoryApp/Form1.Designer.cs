@@ -240,7 +240,6 @@ namespace MemoryApp
             this.Name = "FormIniziale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Benvenuto!";
-            this.Load += new System.EventHandler(this.FormIniziale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tesseraGialloPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraArancioPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraVerdePBox)).EndInit();

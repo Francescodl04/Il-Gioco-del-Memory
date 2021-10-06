@@ -16,11 +16,6 @@ namespace MemoryApp
         {
             InitializeComponent();
         }
-        
-        private void FormIniziale_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void giocaBtn_Click(object sender, EventArgs e)
         {
@@ -79,7 +74,7 @@ namespace MemoryApp
             }
             for (int i = 0; i < indice; i++) 
             {
-                if (datiGiocatori[i, 0] == "" || datiGiocatori[i, 0] == "G1" || datiGiocatori[i, 0] == "G2" || datiGiocatori[i, 0].Contains(" ")) 
+                if (datiGiocatori[i, 0] == "" || datiGiocatori[i, 0] == "G1" || datiGiocatori[i, 0] == "G2" || datiGiocatori[i, 0].Contains(" ") || datiGiocatori[0, 0] == datiGiocatori[1, 0])
                 {
                     giocaBtn.Enabled = false;
                     if (i == 0)

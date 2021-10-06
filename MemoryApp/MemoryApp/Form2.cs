@@ -14,22 +14,24 @@ namespace MemoryApp
 {
     public partial class FormGioco : Form
     {
-        Gioco OperazioniTessere = new Gioco();
+        Button[] TessereGioco;
         int GiocatoreTurno = 0;
         string[,] datiGiocatori = new string[2, 2];
         Random NumeroCasuale = new Random();
         Button primaTessera = null, secondaTessera = null;
         Image SfondoTesseraNascosta = Properties.Resources.punto_domanda_blu;
-        int uno, due;
+        int uno = 0, due = 0, numeroTurno = 1;
+        Gioco OperazioniTessere = new Gioco();
         public FormGioco(string [,] datiGiocatori)
         {
             InitializeComponent();
             this.datiGiocatori = datiGiocatori;
+            TessereGioco = new Button[] { tessera0Btn, tessera1Btn, tessera2Btn, tessera3Btn, tessera4Btn, tessera5Btn, tessera6Btn, tessera7Btn, tessera8Btn, tessera9Btn, tessera10Btn, tessera11Btn, tessera12Btn, tessera13Btn, tessera14Btn, tessera15Btn };
         }
 
         private void FormGioco_Load(object sender, EventArgs e)
         {
-            OperazioniTessere.GeneraTessereCasuali();
+            OperazioniTessere.GeneraTessereCasuali(0);
             Attendi();
         }
 
@@ -46,8 +48,12 @@ namespace MemoryApp
                     GiocatoreTurno = 1;
                     break;
             }
+            for (int i = 0; i < TessereGioco.Length; i++)
+            {
+                TessereGioco[i].Enabled = true;
+            }
             indicatoreTurniLabel.Text = $"Il primo a giocare è { datiGiocatori[GiocatoreTurno, 0]}.";
-            indicatoreAbbinamentiLabel.Text = $"Abbinamenti corretti:\n {datiGiocatori[0,0] }: 0\n {datiGiocatori[1, 0]}: 0 ";
+            indicatoreAbbinamentiLabel.Text = $"Numero turno: {numeroTurno}\n\nAbbinamenti corretti:\n {datiGiocatori[0,0] }: 0\n {datiGiocatori[1, 0]}: 0 ";
         }
 
         private void bluToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,47 +82,46 @@ namespace MemoryApp
 
         public void DisattivaSelezione(int n)
         {
-            Button[] tessere = new Button[] { tessera0Btn, tessera1Btn, tessera2Btn, tessera3Btn, tessera4Btn, tessera5Btn, tessera6Btn, tessera7Btn, tessera8Btn, tessera9Btn, tessera10Btn, tessera11Btn, tessera12Btn, tessera13Btn, tessera14Btn, tessera15Btn };
             bluToolStripMenuItem.Checked = false;
             arancioToolStripMenuItem.Checked = false;
             gialloToolStripMenuItem.Checked = false;
             verdeToolStripMenuItem.Checked = false;
-            for (int i = 0; i < tessere.Length; i++)
+            for (int i = 0; i < TessereGioco.Length; i++)
             {
-                if(tessere[i].Enabled==true)
+                if(TessereGioco[i].Enabled==true)
                 switch (n)
                 {
                     case 0:
-                            tessere[i].BackgroundImage = Properties.Resources.punto_domanda_blu;
+                            TessereGioco[i].BackgroundImage = Properties.Resources.punto_domanda_blu;
                             SfondoTesseraNascosta = Properties.Resources.punto_domanda_blu;
                             logoLabel.BackColor = Color.AliceBlue;
                             indicatoreTurniLabel.BackColor = Color.AliceBlue;
                             indicatoreAbbinamentiLabel.BackColor = Color.AliceBlue;
-                            rimescolaTessereLabel.BackColor= Color.AliceBlue;
+                            rimescolaTesserePanel.BackColor= Color.AliceBlue;
                             break;
                     case 1:
-                            tessere[i].BackgroundImage = Properties.Resources.punto_domanda_arancio;
+                            TessereGioco[i].BackgroundImage = Properties.Resources.punto_domanda_arancio;
                             SfondoTesseraNascosta = Properties.Resources.punto_domanda_arancio;
                             logoLabel.BackColor = Color.SeaShell;
                             indicatoreTurniLabel.BackColor = Color.SeaShell;
                             indicatoreAbbinamentiLabel.BackColor = Color.SeaShell;
-                            rimescolaTessereLabel.BackColor = Color.SeaShell;
+                            rimescolaTesserePanel.BackColor = Color.SeaShell;
                             break;
                     case 2:
-                            tessere[i].BackgroundImage = Properties.Resources.punto_domanda_giallo;
+                            TessereGioco[i].BackgroundImage = Properties.Resources.punto_domanda_giallo;
                             SfondoTesseraNascosta = Properties.Resources.punto_domanda_giallo;
                             logoLabel.BackColor = Color.Cornsilk;
                             indicatoreTurniLabel.BackColor = Color.Cornsilk;
                             indicatoreAbbinamentiLabel.BackColor = Color.Cornsilk;
-                            rimescolaTessereLabel.BackColor = Color.Cornsilk;
+                            rimescolaTesserePanel.BackColor = Color.Cornsilk;
                             break;
                     case 3:
-                            tessere[i].BackgroundImage = Properties.Resources.punto_domanda_verde;
+                            TessereGioco[i].BackgroundImage = Properties.Resources.punto_domanda_verde;
                             SfondoTesseraNascosta = Properties.Resources.punto_domanda_verde;
                             logoLabel.BackColor = Color.Honeydew;
                             indicatoreTurniLabel.BackColor = Color.Honeydew;
                             indicatoreAbbinamentiLabel.BackColor = Color.Honeydew;
-                            rimescolaTessereLabel.BackColor = Color.Honeydew;
+                            rimescolaTesserePanel.BackColor = Color.Honeydew;
                             break;
                 }
             }
@@ -228,7 +233,7 @@ namespace MemoryApp
                 int n = Convert.ToInt32(datiGiocatori[GiocatoreTurno, 1]);
                 n++;
                 datiGiocatori[GiocatoreTurno, 1] = Convert.ToString(n);
-                indicatoreAbbinamentiLabel.Text = $"Abbinamenti corretti:\n {datiGiocatori[0, 0]}: {datiGiocatori[0, 1]}\n {datiGiocatori[1, 0]}: {datiGiocatori[1, 1]} ";
+                indicatoreAbbinamentiLabel.Text = $"Numero turno: {numeroTurno}\n\nAbbinamenti corretti:\n {datiGiocatori[0, 0]}: {datiGiocatori[0, 1]}\n {datiGiocatori[1, 0]}: {datiGiocatori[1, 1]} ";
 
             }
             else
@@ -249,8 +254,31 @@ namespace MemoryApp
                 }
                 indicatoreTurniLabel.Text = $"{datiGiocatori[GiocatoreTurno, 0]}, è il tuo turno!";
             }
+            if (Convert.ToInt32(datiGiocatori[0, 1]) + Convert.ToInt32(datiGiocatori[1, 1]) == (numeroTurno * 8)) 
+            {
+                ProclamazioneVincitore();
+            }
             primaTessera = null;
             secondaTessera = null;
+        }
+
+        public void ProclamazioneVincitore()
+        {
+            if (Convert.ToInt32(datiGiocatori[0, 1]) > Convert.ToInt32(datiGiocatori[1, 1]))
+            {
+                MessageBox.Show($"Evviva! Il turno è finito e lo ha vinto {datiGiocatori[0, 0]}\ncon {datiGiocatori[0, 1]} abbinamenti corretti.");
+            }
+            else if(Convert.ToInt32(datiGiocatori[0, 1]) < Convert.ToInt32(datiGiocatori[1, 1]))
+            {
+                MessageBox.Show($"Evviva! Il turno è finito e lo ha vinto {datiGiocatori[1, 0]}\ncon {datiGiocatori[1, 1]} abbinamenti corretti.");
+            }
+            else
+            {
+                MessageBox.Show($"Il turno è finito, ma non c'è nessun vincitore: entrambi voi giocatori avete ottenuto {datiGiocatori[0, 1]} abbinamenti corretti.");
+            }
+            rimescolaTesserePanel.Visible = true;
+            rimescolaTessereBtn.Visible = true;
+
         }
 
         private void FormGioco_FormClosed(object sender, FormClosedEventArgs e)
@@ -279,23 +307,43 @@ namespace MemoryApp
 
         private void fioriToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (fioriToolStripMenuItem.Checked == false)
+            {
+                fioriToolStripMenuItem.Checked = true;
+                animaliToolStripMenuItem.Checked = false;
+                AvvisoCambioSetCarte();
+            }
+        }
 
+        private void rimescolaTessereBtn_Click(object sender, EventArgs e)
+        {
+            numeroTurno++;
+            rimescolaTesserePanel.Visible = false;
+            rimescolaTessereBtn.Visible = false;
+            if (fioriToolStripMenuItem.Checked == true)
+            {
+                OperazioniTessere.GeneraTessereCasuali(0);
+            }
+            else
+            {
+                OperazioniTessere.GeneraTessereCasuali(1);
+            }
+            for (int i = 0; i < TessereGioco.Length; i++)
+            {
+                TessereGioco[i].BackgroundImage = SfondoTesseraNascosta;
+                TessereGioco[i].Enabled = true;
+                TessereGioco[i].Visible = true;
+            }
         }
 
         private void animaliToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AvvisoCambioSetCarte();
-        }
-
-        private void mezziDiTrasportoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AvvisoCambioSetCarte();
-        }
-
-
-        private void monumentiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AvvisoCambioSetCarte();
+            if (animaliToolStripMenuItem.Checked == false)
+            {
+                fioriToolStripMenuItem.Checked = false;
+                animaliToolStripMenuItem.Checked = true;
+                AvvisoCambioSetCarte();
+            }
         }
 
         public void AvvisoCambioSetCarte()
@@ -309,20 +357,7 @@ namespace MemoryApp
         public int[] idCarte = new int[16];
         public Image[] TessereGirate = new Image[16];
         Random NumeroCasuale = new Random();
-        public void GeneraPrimoGiocatore()
-        {
-            int numeroGenerato= NumeroCasuale.Next(0, 2);
-            switch(numeroGenerato)
-            {
-                case (0):
-
-                    break;
-                case (1):
-                    break;
-
-            }
-        }
-        public void GeneraTessereCasuali()
+        public void GeneraTessereCasuali(int codiceSetTessere)
         {
             int[] ContatoreCollisioni = new int[8];
             for (int i = 0; i < TessereGirate.Length; i++)
@@ -333,7 +368,14 @@ namespace MemoryApp
                     case (0):
                         if (ContatoreCollisioni[0] < 2) 
                         {
-                            TessereGirate[i] = Properties.Resources.calla;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.calla;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.cavallo;
+                            }
                             idCarte[i] = 0;
                             ContatoreCollisioni[0]++;
                         }
@@ -345,7 +387,14 @@ namespace MemoryApp
                     case (1):
                         if (ContatoreCollisioni[1] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.campanelle;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.campanelle;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.gallina;
+                            }
                             idCarte[i] = 1;
                             ContatoreCollisioni[1]++;
                         }
@@ -357,7 +406,14 @@ namespace MemoryApp
                     case (2):
                         if (ContatoreCollisioni[2] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.girasole;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.girasole;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.leone;
+                            }
                             idCarte[i] = 2;
                             ContatoreCollisioni[2]++;
                         }
@@ -369,7 +425,14 @@ namespace MemoryApp
                     case (3):
                         if (ContatoreCollisioni[3] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.lavanda;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.lavanda;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.maiale;
+                            }
                             idCarte[i] = 3;
                             ContatoreCollisioni[3]++;
                         }
@@ -381,7 +444,14 @@ namespace MemoryApp
                     case (4):
                         if (ContatoreCollisioni[4] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.margherita;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.margherita;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.mucca;
+                            }
                             idCarte[i] = 4;
                             ContatoreCollisioni[4]++;
                         }
@@ -393,7 +463,14 @@ namespace MemoryApp
                     case (5):
                         if (ContatoreCollisioni[5] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.rosa;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.rosa;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.panda;
+                            }
                             idCarte[i] = 5;
                             ContatoreCollisioni[5]++;
                         }
@@ -405,7 +482,14 @@ namespace MemoryApp
                     case (6):
                         if (ContatoreCollisioni[6] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.stella_alpina;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.stella_alpina;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.pulcino;
+                            }
                             idCarte[i] = 6;
                             ContatoreCollisioni[6]++;
                         }
@@ -417,7 +501,14 @@ namespace MemoryApp
                     case (7):
                         if (ContatoreCollisioni[7] < 2)
                         {
-                            TessereGirate[i] = Properties.Resources.tulipano;
+                            if (codiceSetTessere == 0)
+                            {
+                                TessereGirate[i] = Properties.Resources.tulipano;
+                            }
+                            else
+                            {
+                                TessereGirate[i] = Properties.Resources.scimpanzè;
+                            }
                             idCarte[i] = 7;
                             ContatoreCollisioni[7]++;
                         }
@@ -428,10 +519,6 @@ namespace MemoryApp
                         break;
                 }
             }
-        }
-        public void DisponimentoTessere()
-        {
-
         }
     }
 }

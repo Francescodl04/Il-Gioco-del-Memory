@@ -128,5 +128,29 @@
   <ItemGroup>
     <None Include="Resources\sfondo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cavallo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gallina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maiale.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mucca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pulcino.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scimpanzè.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leone.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
