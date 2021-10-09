@@ -186,16 +186,22 @@ namespace MemoryApp
             G2();
             
         }
+
+        bool verifica;
         public int G2()
         {
             int n = -1;
             if (datiGiocatori[GiocatoreTurno, 0] == "G2")
             {
-                int[] NumeriTessere = OperazioniTessere.OperazioniG2();
-                for (int i = 0; i < NumeriTessere.Length; i++)
+                do
                 {
-                    MostraImmagineTessera(NumeriTessere[i], TessereGioco[NumeriTessere[i]]);
+                    int[] NumeriTessere = OperazioniTessere.OperazioniG2();
+                    for (int i = 0; i < NumeriTessere.Length; i++)
+                    {
+                        MostraImmagineTessera(NumeriTessere[i], TessereGioco[NumeriTessere[i]]);
+                    }
                 }
+                while (verifica == false);
                 n = 0;
             }
             return n;
@@ -230,6 +236,7 @@ namespace MemoryApp
                 n++;
                 datiGiocatori[GiocatoreTurno, 1] = Convert.ToString(n);
                 EtichetteGioco[2].Text = $"Numero turno: {numeroTurno}\n\nAbbinamenti corretti:\n {datiGiocatori[0, 0]}: {datiGiocatori[0, 1]}\n {datiGiocatori[1, 0]}: {datiGiocatori[1, 1]} ";
+                verifica = false;
             }
             else
             {
@@ -252,6 +259,7 @@ namespace MemoryApp
                 {
                     EtichetteGioco[1].Text = $"{datiGiocatori[GiocatoreTurno, 0]}, è il tuo turno!";
                 }
+                verifica = true;
             }
             if (Convert.ToInt32(datiGiocatori[0, 1]) + Convert.ToInt32(datiGiocatori[1, 1]) == (numeroTurno * 8))
             {
@@ -277,9 +285,12 @@ namespace MemoryApp
             {
                 MessageBox.Show($"Il turno è finito, ma non c'è nessun vincitore: entrambi voi giocatori avete ottenuto {datiGiocatori[0, 1]} abbinamenti corretti.");
             }
+            indicatoreTurniLabel.Text = "😀\nIl turno è terminato...";
+            indicatoreAbbinamentiLabel.Text = "⬅\nScegli cosa fare premendo uno dei bottoni a sinistra...";
             rimescolaTesserePanel.Visible = true;
             rimescolaTessereBtn.Visible = true;
             esciBtn.Visible = true;
+            verifica = true;
 
         }
         private void FormGioco_FormClosed(object sender, FormClosedEventArgs e)
@@ -380,7 +391,7 @@ namespace MemoryApp
         }
         public int[] OperazioniG2()
         {
-            Attendi();
+            EtichetteGioco[1].Text = "G2 sta giocando il suo turno...";
             int[] NumeriTessere = new int[2];
             for (int i = 0; i < TessereGioco.Length; i++)
             {
@@ -388,19 +399,20 @@ namespace MemoryApp
             }
             for (int i = 0; i < 2; i++)
             {
-                do
+                for (int j = 0; j < TessereGioco.Length; j++)
                 {
-                    NumeriTessere[i] = NumeroCasuale.Next(0, 16);
+                    do
+                    {
+                        NumeriTessere[i] = NumeroCasuale.Next(0, 16);
+                    }
+                    while (TessereGioco[NumeriTessere[i]].Visible == false || (NumeriTessere[0] == NumeriTessere[1] && i != 0));
                 }
-                while (TessereGioco[NumeriTessere[i]].Visible == false);
             }
             return NumeriTessere;
             
         }
         public async void Attendi()
         {
-            await Task.Delay(2000);
-            EtichetteGioco[1].Text = "G2 sta giocando il suo turno...";
 
         }
         public Image DisattivaSelezione(int n)
