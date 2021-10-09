@@ -72,6 +72,7 @@ namespace MemoryApp
             this.tessera1Btn = new System.Windows.Forms.Button();
             this.indicatoreTurniLabel = new System.Windows.Forms.Label();
             this.rimescolaTesserePanel = new System.Windows.Forms.Panel();
+            this.esciBtn = new System.Windows.Forms.Button();
             this.barraStrumentiTStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraGialloPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraArancioPBox)).BeginInit();
@@ -483,12 +484,12 @@ namespace MemoryApp
             // 
             // rimescolaTessereBtn
             // 
-            this.rimescolaTessereBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.rimescolaTessereBtn.Location = new System.Drawing.Point(85, 56);
+            this.rimescolaTessereBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold);
+            this.rimescolaTessereBtn.Location = new System.Drawing.Point(26, 20);
             this.rimescolaTessereBtn.Name = "rimescolaTessereBtn";
-            this.rimescolaTessereBtn.Size = new System.Drawing.Size(351, 135);
+            this.rimescolaTessereBtn.Size = new System.Drawing.Size(229, 211);
             this.rimescolaTessereBtn.TabIndex = 34;
-            this.rimescolaTessereBtn.Text = "Per continuare la partita e rimescolare le tessere premi qui...";
+            this.rimescolaTessereBtn.Text = "➡\r\nContinua \r\nla partita ";
             this.rimescolaTessereBtn.UseVisualStyleBackColor = true;
             this.rimescolaTessereBtn.Visible = false;
             this.rimescolaTessereBtn.Click += new System.EventHandler(this.rimescolaTessereBtn_Click);
@@ -521,12 +522,25 @@ namespace MemoryApp
             // 
             this.rimescolaTesserePanel.BackColor = System.Drawing.Color.AliceBlue;
             this.rimescolaTesserePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rimescolaTesserePanel.Controls.Add(this.esciBtn);
             this.rimescolaTesserePanel.Controls.Add(this.rimescolaTessereBtn);
             this.rimescolaTesserePanel.Location = new System.Drawing.Point(35, 194);
             this.rimescolaTesserePanel.Name = "rimescolaTesserePanel";
             this.rimescolaTesserePanel.Size = new System.Drawing.Size(521, 256);
             this.rimescolaTesserePanel.TabIndex = 43;
             this.rimescolaTesserePanel.Visible = false;
+            // 
+            // esciBtn
+            // 
+            this.esciBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 17F, System.Drawing.FontStyle.Bold);
+            this.esciBtn.Location = new System.Drawing.Point(264, 20);
+            this.esciBtn.Name = "esciBtn";
+            this.esciBtn.Size = new System.Drawing.Size(229, 211);
+            this.esciBtn.TabIndex = 35;
+            this.esciBtn.Text = "🚪\r\nEsci \r\ndal gioco";
+            this.esciBtn.UseVisualStyleBackColor = true;
+            this.esciBtn.Visible = false;
+            this.esciBtn.Click += new System.EventHandler(this.esciBtn_Click);
             // 
             // FormGioco
             // 
@@ -624,6 +638,7 @@ namespace MemoryApp
         private System.Windows.Forms.Button tessera0Btn;
         private System.Windows.Forms.Label indicatoreTurniLabel;
         private System.Windows.Forms.Panel rimescolaTesserePanel;
+        private System.Windows.Forms.Button esciBtn;
     }
 }
 
