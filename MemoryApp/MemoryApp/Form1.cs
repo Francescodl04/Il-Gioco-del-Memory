@@ -1,7 +1,7 @@
 ﻿/* Autore: Francesco Di Lena
  * Classe: 4 F
  * Consegna: creare un videogioco, Memory, attraverso l'uso del framework Windows Forms e il linguaggio di programmazione C#.
- * Form iniziale.
+ * Form iniziale in cui vengono inseriti i dati dei giocatori.
  */
 
 using System;
@@ -11,7 +11,7 @@ namespace MemoryApp
 {
     public partial class FormIniziale : Form
     {
-        string[,] datiGiocatori = new string[2, 2] { { "G1", "0" }, { "G2", "0" } };
+        string[,] DatiGiocatori = new string[2, 2] { { "G1", "0" }, { "G2", "0" } };
         public FormIniziale()
         {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace MemoryApp
 
         private void giocaBtn_Click(object sender, EventArgs e)
         {
-            Form FormGioco = new FormGioco(datiGiocatori);
+            Form FormGioco = new FormGioco(DatiGiocatori);
             this.Hide();
             FormGioco.Show();
         }
@@ -27,7 +27,7 @@ namespace MemoryApp
         {
             nomeG2TBox.Enabled = false;
             nomeG2TBox.Text = "G2";
-            datiGiocatori[1,0] = nomeG2TBox.Text;
+            DatiGiocatori[1, 0] = nomeG2TBox.Text;
             erroreInserimentoG2EProvider.Clear();
         }
 
@@ -45,7 +45,7 @@ namespace MemoryApp
 
         private void nomeG1TBox_TextChanged(object sender, EventArgs e)
         {
-            datiGiocatori[0,0] = nomeG1TBox.Text;
+            DatiGiocatori[0, 0] = nomeG1TBox.Text;
             VerificaErroriInserimentoTextBox();
         }
 
@@ -57,11 +57,11 @@ namespace MemoryApp
 
         private void nomeG2TBox_TextChanged(object sender, EventArgs e)
         {
-            datiGiocatori[1,0] = nomeG2TBox.Text;
+            DatiGiocatori[1, 0] = nomeG2TBox.Text;
             VerificaErroriInserimentoTextBox();
         }
 
-        public void VerificaErroriInserimentoTextBox()
+        private void VerificaErroriInserimentoTextBox()
         {
             int indice;
             if (dueGiocatoriRBtn.Checked == false)
@@ -72,9 +72,9 @@ namespace MemoryApp
             {
                 indice = 2;
             }
-            for (int i = 0; i < indice; i++) 
+            for (int i = 0; i < indice; i++)
             {
-                if (datiGiocatori[i, 0] == "" || datiGiocatori[i, 0] == "G1" || datiGiocatori[i, 0] == "G2" || datiGiocatori[i, 0].Contains(" ") || datiGiocatori[0, 0] == datiGiocatori[1, 0])
+                if (DatiGiocatori[i, 0] == "" || DatiGiocatori[i, 0] == "G1" || DatiGiocatori[i, 0] == "G2" || DatiGiocatori[i, 0].Contains(" ") || DatiGiocatori[0, 0] == DatiGiocatori[1, 0])
                 {
                     giocaBtn.Enabled = false;
                     if (i == 0)
@@ -100,6 +100,5 @@ namespace MemoryApp
                 }
             }
         }
-
     }
 }

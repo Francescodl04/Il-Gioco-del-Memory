@@ -44,7 +44,7 @@ namespace MemoryApp
             this.gialloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aiutoTSDDButton = new System.Windows.Forms.ToolStripDropDownButton();
-            this.manualeDiUsoDelGiocoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regoleDelGiocoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.informazioniSulGiocoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tessera0Btn = new System.Windows.Forms.Button();
@@ -209,7 +209,7 @@ namespace MemoryApp
             // 
             this.aiutoTSDDButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.aiutoTSDDButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manualeDiUsoDelGiocoToolStripMenuItem,
+            this.regoleDelGiocoToolStripMenuItem,
             this.toolStripSeparator2,
             this.informazioniSulGiocoToolStripMenuItem});
             this.aiutoTSDDButton.Image = ((System.Drawing.Image)(resources.GetObject("aiutoTSDDButton.Image")));
@@ -220,21 +220,22 @@ namespace MemoryApp
             this.aiutoTSDDButton.Text = "?";
             this.aiutoTSDDButton.ToolTipText = "Qui trovi il manuale d\'uso e le informazioni sul gioco";
             // 
-            // manualeDiUsoDelGiocoToolStripMenuItem
+            // regoleDelGiocoToolStripMenuItem
             // 
-            this.manualeDiUsoDelGiocoToolStripMenuItem.Name = "manualeDiUsoDelGiocoToolStripMenuItem";
-            this.manualeDiUsoDelGiocoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.manualeDiUsoDelGiocoToolStripMenuItem.Text = "Manuale di uso del gioco";
+            this.regoleDelGiocoToolStripMenuItem.Name = "regoleDelGiocoToolStripMenuItem";
+            this.regoleDelGiocoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.regoleDelGiocoToolStripMenuItem.Text = "Regole del gioco";
+            this.regoleDelGiocoToolStripMenuItem.Click += new System.EventHandler(this.regoleDelGiocoToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(198, 6);
             // 
             // informazioniSulGiocoToolStripMenuItem
             // 
             this.informazioniSulGiocoToolStripMenuItem.Name = "informazioniSulGiocoToolStripMenuItem";
-            this.informazioniSulGiocoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.informazioniSulGiocoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.informazioniSulGiocoToolStripMenuItem.Text = "Informazioni sul gioco...";
             this.informazioniSulGiocoToolStripMenuItem.Click += new System.EventHandler(this.informazioniSulGiocoToolStripMenuItem_Click);
             // 
@@ -580,6 +581,7 @@ namespace MemoryApp
             this.Name = "FormGioco";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Memory";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGioco_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGioco_FormClosed);
             this.Load += new System.EventHandler(this.FormGioco_Load);
             this.barraStrumentiTStrip.ResumeLayout(false);
@@ -606,7 +608,7 @@ namespace MemoryApp
         private System.Windows.Forms.ToolStripMenuItem gialloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verdeToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton aiutoTSDDButton;
-        private System.Windows.Forms.ToolStripMenuItem manualeDiUsoDelGiocoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regoleDelGiocoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem informazioniSulGiocoToolStripMenuItem;
         private System.Windows.Forms.Button tessera2Btn;

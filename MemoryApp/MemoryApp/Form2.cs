@@ -25,6 +25,7 @@ namespace MemoryApp
         Button[] TessereCliccate = new Button[2];
         int[] PosizioneTessereCliccate = new int[2];
         int[] IDCarte;
+        bool chiusuraGioco = true;
         OperazioniTessere OperazioniTessere;
         public FormGioco(string [,] datiGiocatori)
         {
@@ -39,11 +40,13 @@ namespace MemoryApp
         private void FormGioco_Load(object sender, EventArgs e)
         {
             IDCarte = OperazioniTessere.GeneraTessereCasuali(0);
-            Attendi();
+            AggiornaEtichette();
         }
 
-        private async void Attendi()
+        private async void AggiornaEtichette()
         {
+            EtichetteGioco[1].Text = "👋 Benvenuti nel gioco!";
+            EtichetteGioco[2].Text = "⌚ Un attimo e sarà il caso a decidere chi comincerà per primo!";
             await Task.Delay(3000);
             int n = NumeroCasuale.Next(0, 2);
             switch (n)
@@ -61,9 +64,9 @@ namespace MemoryApp
                 {
                     TessereGioco[i].Enabled = true;
                 }
-                indicatoreTurniLabel.Text = $"Il primo a giocare è { datiGiocatori[GiocatoreTurno, 0]}.";
+                EtichetteGioco[1].Text = $"Il primo a giocare è { datiGiocatori[GiocatoreTurno, 0]}.";
             }
-            indicatoreAbbinamentiLabel.Text = $"Numero turno: {numeroTurno}\n\nAbbinamenti corretti:\n {datiGiocatori[0,0] }: 0\n {datiGiocatori[1, 0]}: 0 ";
+            EtichetteGioco[2].Text = $"Numero turno: {numeroTurno}\n\nAbbinamenti corretti:\n {datiGiocatori[0,0] }: 0\n {datiGiocatori[1, 0]}: 0 ";
         }
 
         private void bluToolStripMenuItem_Click(object sender, EventArgs e)
@@ -199,6 +202,7 @@ namespace MemoryApp
                     for (int i = 0; i < NumeriTessere.Length; i++)
                     {
                         MostraImmagineTessera(NumeriTessere[i], TessereGioco[NumeriTessere[i]]);
+                        Task.Delay(500).Wait();
                     }
                 }
                 while (verifica == false);
@@ -225,9 +229,9 @@ namespace MemoryApp
 
         private void ConfermaAbbinamento()
         {
-            if (OperazioniTessere.IDCarte[PosizioneTessereCliccate[0]] == OperazioniTessere.IDCarte[PosizioneTessereCliccate[1]]) 
+            if (OperazioniTessere.IDCarte[PosizioneTessereCliccate[0]] == OperazioniTessere.IDCarte[PosizioneTessereCliccate[1]])
             {
-                Thread.Sleep(750);
+                Task.Delay(750).Wait();
                 for (int i = 0; i < TessereCliccate.Length; i++)
                 {
                     TessereCliccate[i].Visible = false;
@@ -240,7 +244,7 @@ namespace MemoryApp
             }
             else
             {
-                Thread.Sleep(750);
+                Task.Delay(750).Wait();
                 for (int i = 0; i < TessereGioco.Length; i++)
                 {
                     TessereGioco[i].BackgroundImage = sfondoTesseraNascosta;
@@ -305,6 +309,7 @@ namespace MemoryApp
 
         private void tornaAlMenuInizialeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            chiusuraGioco = false;
             var conferma = MessageBox.Show("Sei sicuro di voler ritornare al menu principale?\nOgni progresso non salvato verrà perso.", "Torna al menu principale", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (conferma == DialogResult.Yes)
             {
@@ -344,9 +349,9 @@ namespace MemoryApp
             for (int i = 0; i < TessereGioco.Length; i++)
             {
                 TessereGioco[i].BackgroundImage = sfondoTesseraNascosta;
-                TessereGioco[i].Enabled = true;
                 TessereGioco[i].Visible = true;
             }
+            AggiornaEtichette();
         }
 
         private void animaliToolStripMenuItem_Click(object sender, EventArgs e)
@@ -367,6 +372,26 @@ namespace MemoryApp
         private void esciBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void regoleDelGiocoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Vengono disposte tutte le tessere coperte sul tabellone." + "\nA turno ciascun giocatore gira due tessere facendole vedere anche agli avversari." +
+                "\nLo scopo è quello di abbinare un’ immagine con la frazione corrispondente: se le due tessere girate costituiscono una buona coppia il giocatore le prende e " +
+                "tocca ancora a lui finché non sbaglia; se le due tessere non rappresentano la stessa frazione deve rigirarle e tocca al giocatore successivo." +
+                "\nIl gioco termina quando non ci sono più tessere sul tavolo: vince chi ne ha raccolte di più.", "Regole del gioco", MessageBoxButtons.OK);
+        }
+
+        private void FormGioco_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (chiusuraGioco == true)
+            {
+                var conferma = MessageBox.Show("Sei sicuro di voler uscire dal gioco?\nOgni progresso non salvato andrà perso.", "Chiusura gioco...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (conferma == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
     public class OperazioniTessere
@@ -397,6 +422,7 @@ namespace MemoryApp
             {
                 TessereGioco[i].Enabled = false;
             }
+            Task.Delay(1000).Wait();
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < TessereGioco.Length; j++)
@@ -410,10 +436,6 @@ namespace MemoryApp
             }
             return NumeriTessere;
             
-        }
-        public async void Attendi()
-        {
-
         }
         public Image DisattivaSelezione(int n)
         {
