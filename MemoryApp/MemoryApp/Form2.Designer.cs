@@ -38,11 +38,13 @@ namespace MemoryApp
             this.setCarteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fioriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animaliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.professoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setColoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arancioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gialloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iISViolaMarchesiniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aiutoTSDDButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.regoleDelGiocoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -143,9 +145,10 @@ namespace MemoryApp
             // 
             this.setCarteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fioriToolStripMenuItem,
-            this.animaliToolStripMenuItem});
+            this.animaliToolStripMenuItem,
+            this.professoriToolStripMenuItem});
             this.setCarteToolStripMenuItem.Name = "setCarteToolStripMenuItem";
-            this.setCarteToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.setCarteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setCarteToolStripMenuItem.Text = "Set carte";
             // 
             // fioriToolStripMenuItem
@@ -153,16 +156,24 @@ namespace MemoryApp
             this.fioriToolStripMenuItem.Checked = true;
             this.fioriToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fioriToolStripMenuItem.Name = "fioriToolStripMenuItem";
-            this.fioriToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.fioriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fioriToolStripMenuItem.Text = "Fiori";
             this.fioriToolStripMenuItem.Click += new System.EventHandler(this.fioriToolStripMenuItem_Click);
             // 
             // animaliToolStripMenuItem
             // 
             this.animaliToolStripMenuItem.Name = "animaliToolStripMenuItem";
-            this.animaliToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.animaliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.animaliToolStripMenuItem.Text = "Animali";
             this.animaliToolStripMenuItem.Click += new System.EventHandler(this.animaliToolStripMenuItem_Click);
+            // 
+            // professoriToolStripMenuItem
+            // 
+            this.professoriToolStripMenuItem.Name = "professoriToolStripMenuItem";
+            this.professoriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.professoriToolStripMenuItem.Text = "Professori";
+            this.professoriToolStripMenuItem.Visible = false;
+            this.professoriToolStripMenuItem.Click += new System.EventHandler(this.professoriToolStripMenuItem_Click);
             // 
             // setColoriToolStripMenuItem
             // 
@@ -170,9 +181,10 @@ namespace MemoryApp
             this.bluToolStripMenuItem,
             this.arancioToolStripMenuItem,
             this.gialloToolStripMenuItem,
-            this.verdeToolStripMenuItem});
+            this.verdeToolStripMenuItem,
+            this.iISViolaMarchesiniToolStripMenuItem});
             this.setColoriToolStripMenuItem.Name = "setColoriToolStripMenuItem";
-            this.setColoriToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.setColoriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setColoriToolStripMenuItem.Text = "Set colori";
             // 
             // bluToolStripMenuItem
@@ -180,30 +192,38 @@ namespace MemoryApp
             this.bluToolStripMenuItem.Checked = true;
             this.bluToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.bluToolStripMenuItem.Name = "bluToolStripMenuItem";
-            this.bluToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.bluToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.bluToolStripMenuItem.Text = "Blu";
             this.bluToolStripMenuItem.Click += new System.EventHandler(this.bluToolStripMenuItem_Click);
             // 
             // arancioToolStripMenuItem
             // 
             this.arancioToolStripMenuItem.Name = "arancioToolStripMenuItem";
-            this.arancioToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.arancioToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.arancioToolStripMenuItem.Text = "Arancio";
             this.arancioToolStripMenuItem.Click += new System.EventHandler(this.arancioToolStripMenuItem_Click);
             // 
             // gialloToolStripMenuItem
             // 
             this.gialloToolStripMenuItem.Name = "gialloToolStripMenuItem";
-            this.gialloToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.gialloToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.gialloToolStripMenuItem.Text = "Giallo";
             this.gialloToolStripMenuItem.Click += new System.EventHandler(this.gialloToolStripMenuItem_Click);
             // 
             // verdeToolStripMenuItem
             // 
             this.verdeToolStripMenuItem.Name = "verdeToolStripMenuItem";
-            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.verdeToolStripMenuItem.Text = "Verde";
             this.verdeToolStripMenuItem.Click += new System.EventHandler(this.verdeToolStripMenuItem_Click);
+            // 
+            // iISViolaMarchesiniToolStripMenuItem
+            // 
+            this.iISViolaMarchesiniToolStripMenuItem.Name = "iISViolaMarchesiniToolStripMenuItem";
+            this.iISViolaMarchesiniToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.iISViolaMarchesiniToolStripMenuItem.Text = "IIS Viola-Marchesini";
+            this.iISViolaMarchesiniToolStripMenuItem.Visible = false;
+            this.iISViolaMarchesiniToolStripMenuItem.Click += new System.EventHandler(this.iISViolaMarchesiniToolStripMenuItem_Click);
             // 
             // aiutoTSDDButton
             // 
@@ -241,6 +261,7 @@ namespace MemoryApp
             // 
             // tessera0Btn
             // 
+            this.tessera0Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera0Btn.BackgroundImage = global::MemoryApp.Properties.Resources.punto_domanda_blu;
             this.tessera0Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera0Btn.Enabled = false;
@@ -248,11 +269,12 @@ namespace MemoryApp
             this.tessera0Btn.Name = "tessera0Btn";
             this.tessera0Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera0Btn.TabIndex = 1;
-            this.tessera0Btn.UseVisualStyleBackColor = true;
+            this.tessera0Btn.UseVisualStyleBackColor = false;
             this.tessera0Btn.Click += new System.EventHandler(this.tessera0Btn_Click);
             // 
             // tessera2Btn
             // 
+            this.tessera2Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera2Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera2Btn.BackgroundImage")));
             this.tessera2Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera2Btn.Enabled = false;
@@ -260,11 +282,12 @@ namespace MemoryApp
             this.tessera2Btn.Name = "tessera2Btn";
             this.tessera2Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera2Btn.TabIndex = 3;
-            this.tessera2Btn.UseVisualStyleBackColor = true;
+            this.tessera2Btn.UseVisualStyleBackColor = false;
             this.tessera2Btn.Click += new System.EventHandler(this.tessera2Btn_Click);
             // 
             // tessera8Btn
             // 
+            this.tessera8Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera8Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera8Btn.BackgroundImage")));
             this.tessera8Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera8Btn.Enabled = false;
@@ -272,11 +295,12 @@ namespace MemoryApp
             this.tessera8Btn.Name = "tessera8Btn";
             this.tessera8Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera8Btn.TabIndex = 9;
-            this.tessera8Btn.UseVisualStyleBackColor = true;
+            this.tessera8Btn.UseVisualStyleBackColor = false;
             this.tessera8Btn.Click += new System.EventHandler(this.tessera8Btn_Click);
             // 
             // tessera3Btn
             // 
+            this.tessera3Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera3Btn.BackgroundImage = global::MemoryApp.Properties.Resources.punto_domanda_blu;
             this.tessera3Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera3Btn.Enabled = false;
@@ -284,11 +308,12 @@ namespace MemoryApp
             this.tessera3Btn.Name = "tessera3Btn";
             this.tessera3Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera3Btn.TabIndex = 4;
-            this.tessera3Btn.UseVisualStyleBackColor = true;
+            this.tessera3Btn.UseVisualStyleBackColor = false;
             this.tessera3Btn.Click += new System.EventHandler(this.tessera3Btn_Click);
             // 
             // tessera9Btn
             // 
+            this.tessera9Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera9Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera9Btn.BackgroundImage")));
             this.tessera9Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera9Btn.Enabled = false;
@@ -296,11 +321,12 @@ namespace MemoryApp
             this.tessera9Btn.Name = "tessera9Btn";
             this.tessera9Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera9Btn.TabIndex = 10;
-            this.tessera9Btn.UseVisualStyleBackColor = true;
+            this.tessera9Btn.UseVisualStyleBackColor = false;
             this.tessera9Btn.Click += new System.EventHandler(this.tessera9Btn_Click);
             // 
             // tessera4Btn
             // 
+            this.tessera4Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera4Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera4Btn.BackgroundImage")));
             this.tessera4Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera4Btn.Enabled = false;
@@ -308,11 +334,12 @@ namespace MemoryApp
             this.tessera4Btn.Name = "tessera4Btn";
             this.tessera4Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera4Btn.TabIndex = 5;
-            this.tessera4Btn.UseVisualStyleBackColor = true;
+            this.tessera4Btn.UseVisualStyleBackColor = false;
             this.tessera4Btn.Click += new System.EventHandler(this.tessera4Btn_Click);
             // 
             // tessera10Btn
             // 
+            this.tessera10Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera10Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera10Btn.BackgroundImage")));
             this.tessera10Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera10Btn.Enabled = false;
@@ -320,11 +347,12 @@ namespace MemoryApp
             this.tessera10Btn.Name = "tessera10Btn";
             this.tessera10Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera10Btn.TabIndex = 11;
-            this.tessera10Btn.UseVisualStyleBackColor = true;
+            this.tessera10Btn.UseVisualStyleBackColor = false;
             this.tessera10Btn.Click += new System.EventHandler(this.tessera10Btn_Click);
             // 
             // tessera5Btn
             // 
+            this.tessera5Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera5Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera5Btn.BackgroundImage")));
             this.tessera5Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera5Btn.Enabled = false;
@@ -332,11 +360,12 @@ namespace MemoryApp
             this.tessera5Btn.Name = "tessera5Btn";
             this.tessera5Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera5Btn.TabIndex = 6;
-            this.tessera5Btn.UseVisualStyleBackColor = true;
+            this.tessera5Btn.UseVisualStyleBackColor = false;
             this.tessera5Btn.Click += new System.EventHandler(this.tessera5Btn_Click);
             // 
             // tessera11Btn
             // 
+            this.tessera11Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera11Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera11Btn.BackgroundImage")));
             this.tessera11Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera11Btn.Enabled = false;
@@ -344,11 +373,12 @@ namespace MemoryApp
             this.tessera11Btn.Name = "tessera11Btn";
             this.tessera11Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera11Btn.TabIndex = 12;
-            this.tessera11Btn.UseVisualStyleBackColor = true;
+            this.tessera11Btn.UseVisualStyleBackColor = false;
             this.tessera11Btn.Click += new System.EventHandler(this.tessera11Btn_Click);
             // 
             // tessera6Btn
             // 
+            this.tessera6Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera6Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera6Btn.BackgroundImage")));
             this.tessera6Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera6Btn.Enabled = false;
@@ -356,11 +386,12 @@ namespace MemoryApp
             this.tessera6Btn.Name = "tessera6Btn";
             this.tessera6Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera6Btn.TabIndex = 7;
-            this.tessera6Btn.UseVisualStyleBackColor = true;
+            this.tessera6Btn.UseVisualStyleBackColor = false;
             this.tessera6Btn.Click += new System.EventHandler(this.tessera6Btn_Click);
             // 
             // tessera12Btn
             // 
+            this.tessera12Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera12Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera12Btn.BackgroundImage")));
             this.tessera12Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera12Btn.Enabled = false;
@@ -368,11 +399,12 @@ namespace MemoryApp
             this.tessera12Btn.Name = "tessera12Btn";
             this.tessera12Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera12Btn.TabIndex = 13;
-            this.tessera12Btn.UseVisualStyleBackColor = true;
+            this.tessera12Btn.UseVisualStyleBackColor = false;
             this.tessera12Btn.Click += new System.EventHandler(this.tessera12Btn_Click);
             // 
             // tessera7Btn
             // 
+            this.tessera7Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera7Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera7Btn.BackgroundImage")));
             this.tessera7Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera7Btn.Enabled = false;
@@ -380,11 +412,12 @@ namespace MemoryApp
             this.tessera7Btn.Name = "tessera7Btn";
             this.tessera7Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera7Btn.TabIndex = 8;
-            this.tessera7Btn.UseVisualStyleBackColor = true;
+            this.tessera7Btn.UseVisualStyleBackColor = false;
             this.tessera7Btn.Click += new System.EventHandler(this.tessera7Btn_Click);
             // 
             // tessera13Btn
             // 
+            this.tessera13Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera13Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera13Btn.BackgroundImage")));
             this.tessera13Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera13Btn.Enabled = false;
@@ -392,11 +425,12 @@ namespace MemoryApp
             this.tessera13Btn.Name = "tessera13Btn";
             this.tessera13Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera13Btn.TabIndex = 14;
-            this.tessera13Btn.UseVisualStyleBackColor = true;
+            this.tessera13Btn.UseVisualStyleBackColor = false;
             this.tessera13Btn.Click += new System.EventHandler(this.tessera13Btn_Click);
             // 
             // tessera15Btn
             // 
+            this.tessera15Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera15Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera15Btn.BackgroundImage")));
             this.tessera15Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera15Btn.Enabled = false;
@@ -404,11 +438,12 @@ namespace MemoryApp
             this.tessera15Btn.Name = "tessera15Btn";
             this.tessera15Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera15Btn.TabIndex = 16;
-            this.tessera15Btn.UseVisualStyleBackColor = true;
+            this.tessera15Btn.UseVisualStyleBackColor = false;
             this.tessera15Btn.Click += new System.EventHandler(this.tessera15Btn_Click);
             // 
             // tessera14Btn
             // 
+            this.tessera14Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera14Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera14Btn.BackgroundImage")));
             this.tessera14Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera14Btn.Enabled = false;
@@ -416,7 +451,7 @@ namespace MemoryApp
             this.tessera14Btn.Name = "tessera14Btn";
             this.tessera14Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera14Btn.TabIndex = 15;
-            this.tessera14Btn.UseVisualStyleBackColor = true;
+            this.tessera14Btn.UseVisualStyleBackColor = false;
             this.tessera14Btn.Click += new System.EventHandler(this.tessera14Btn_Click);
             // 
             // tesseraGialloPBox
@@ -497,6 +532,7 @@ namespace MemoryApp
             // 
             // tessera1Btn
             // 
+            this.tessera1Btn.BackColor = System.Drawing.Color.AliceBlue;
             this.tessera1Btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tessera1Btn.BackgroundImage")));
             this.tessera1Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tessera1Btn.Enabled = false;
@@ -504,7 +540,7 @@ namespace MemoryApp
             this.tessera1Btn.Name = "tessera1Btn";
             this.tessera1Btn.Size = new System.Drawing.Size(125, 125);
             this.tessera1Btn.TabIndex = 2;
-            this.tessera1Btn.UseVisualStyleBackColor = true;
+            this.tessera1Btn.UseVisualStyleBackColor = false;
             this.tessera1Btn.Click += new System.EventHandler(this.tessera1Btn_Click);
             // 
             // indicatoreTurniLabel
@@ -641,6 +677,8 @@ namespace MemoryApp
         private System.Windows.Forms.Label indicatoreTurniLabel;
         private System.Windows.Forms.Panel rimescolaTesserePanel;
         private System.Windows.Forms.Button esciBtn;
+        private System.Windows.Forms.ToolStripMenuItem professoriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iISViolaMarchesiniToolStripMenuItem;
     }
 }
 

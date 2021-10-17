@@ -236,10 +236,12 @@ namespace MemoryApp
             this.Controls.Add(this.logoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "FormIniziale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Benvenuto!";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormIniziale_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.tesseraGialloPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraArancioPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tesseraVerdePBox)).EndInit();

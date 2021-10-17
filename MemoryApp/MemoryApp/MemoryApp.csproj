@@ -152,5 +152,35 @@
   <ItemGroup>
     <None Include="Resources\leone.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bagatin.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bononi.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dall%27ara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gregnanin.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\melon.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nino.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padovani.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raspa.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retro carta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tessera_nascosta_itis.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
