@@ -28,18 +28,18 @@ namespace MemoryApp
         {
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.H) //Se si preme la combinazione di tasti ALT + H, allora vengono eseguite le seguenti istruzioni.
             {
-                var conferma = MessageBox.Show("Hai attivato la modalità ITIS Ferruccio Viola: ora ogni tessera verrà associata all'immagine di un professore della scuola. Vuoi proseguire con questa configurazione (Sì) oppure con le tessere normali (No)? \nNota: il programmatore nega ogni responsabilità di questa funzionalità di programma.", "Modalità segreta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                var conferma = MessageBox.Show("Hai attivato la modalità ITIS Ferruccio Viola: ora ogni tessera verrà associata all'immagine di un professore della scuola. Vuoi proseguire con questa configurazione (Sì) oppure con le tessere normali (No)? \nNota: il programmatore nega ogni responsabilità per l'utilizzo incorretto di questa funzionalità di programma.", "Modalità segreta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (conferma == DialogResult.Yes)
                 {
                     MessageBox.Show("Bene, hai configurato la modalità ITIS Ferruccio Viola. Ora inserisci i dati dei giocatori e premi il pulsante Gioca!", "Operazione eseguita con successo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     codiceSetTessere = 2;
                 }
             }
-        }
+        } //Permette di rilevare la combinazione di inserimento da tastiera di ALT+H e di eseguire le operazioni associate.
 
         //Metodi relativi agli oggetti unoGiocatoreRtn e dueGiocatoriRBtn (entrambi RadioButton).
 
-        private void unoGiocatoreRBtn_CheckedChanged(object sender, EventArgs e) //Se viene selezionato un solo giocatore, rende inutilizzabile la casella del nome di G2.
+        private void unoGiocatoreRBtn_CheckedChanged(object sender, EventArgs e) //Se viene selezionato un solo giocatore, disattiva la casella del nome di G2.
         {
             nomeG2TBox.Enabled = false;
             nomeG2TBox.Text = "G2";
@@ -47,7 +47,7 @@ namespace MemoryApp
             erroreInserimentoG2EProvider.Clear();
         }
 
-        private void dueGiocatoriRBtn_CheckedChanged(object sender, EventArgs e) //Se viene selezionato un solo giocatore, rende utilizzabile la casella del nome di G2.
+        private void dueGiocatoriRBtn_CheckedChanged(object sender, EventArgs e) //Se viene selezionato un solo giocatore, attiva la casella del nome di G2.
         {
             nomeG2TBox.Enabled = true;
             nomeG2TBox.Text = "Nome G2";
@@ -62,7 +62,7 @@ namespace MemoryApp
             nomeG1TBox.SelectionLength = nomeG1TBox.Text.Length;
         }
 
-        private void nomeG1TBox_TextChanged(object sender, EventArgs e) //In questo metodo si effettua l'inserimento del nome di G1 in una variabile a partire da ciò che l'utente inserisce in nomeG1TBox.
+        private void nomeG1TBox_TextChanged(object sender, EventArgs e) //In questo metodo si effettua, ogni volta che il testo cambia, l'inserimento del nome di G1 in una variabile a partire da ciò che l'utente inserisce in nomeG1TBox.
         {
             DatiGiocatori[0, 0] = nomeG1TBox.Text;
             VerificaErroriInserimentoTextBox();
@@ -74,7 +74,7 @@ namespace MemoryApp
             nomeG2TBox.SelectionLength = nomeG2TBox.Text.Length;
         }
 
-        private void nomeG2TBox_TextChanged(object sender, EventArgs e) //In questo metodo si effettua l'inserimento del nome di G2 in una variabile a partire da ciò che l'utente inserisce in nomeG2TBox.
+        private void nomeG2TBox_TextChanged(object sender, EventArgs e) //In questo metodo si effettua, ogni volta che il testo cambia, l'inserimento del nome di G2 in una variabile a partire da ciò che l'utente inserisce in nomeG2TBox.
         {
             DatiGiocatori[1, 0] = nomeG2TBox.Text;
             VerificaErroriInserimentoTextBox();
