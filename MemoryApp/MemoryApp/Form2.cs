@@ -195,7 +195,7 @@ namespace MemoryApp
 
         private void informazioniSulGiocoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Il gioco del Memory.\n\nVersione di test.\nVersione .NET Framework 4.7.2 \nTutti i diritti riservati a Rasvenburger.", "Informazioni sul gioco...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Il gioco del Memory.\n\nVersione 1.0\nVersione .NET Framework 4.7.2\nA.S. 2021-2022 Francesco Di Lena", "Informazioni sul gioco...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void regoleDelGiocoToolStripMenuItem_Click(object sender, EventArgs e)
