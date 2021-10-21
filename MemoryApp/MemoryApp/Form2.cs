@@ -15,14 +15,13 @@ namespace MemoryApp
     {
         //Inizializzazione e dichiarazione variabili.
 
-        static Button[] TessereGioco;
+        static Button[] TessereGioco, TessereCliccate = new Button[2];
         static ToolStripMenuItem[] SceltaSetColori, SceltaSetCarte;
         static Label[] EtichetteGioco;
         int giocatoreTurno = 0, codiceSetCarte = 0, codiceSetColore = 0, numeroTurno = 1;
         string[,] DatiGiocatori;
         Random NumeroCasuale = new Random();
         Image sfondoTesseraNascosta = Properties.Resources.punto_domanda_blu;
-        Button[] TessereCliccate = new Button[2];
         int[] PosizioneTessereCliccate = new int[2], IDCarte;
         bool verifica, chiusuraGioco = true;
         OperazioniTessere OperazioniTessere;
@@ -445,10 +444,9 @@ namespace MemoryApp
         public Button primaTessera, secondaTessera;
         public int uno, due, numeroTurno;
         public int[] IDCarte = new int[16];
+        private Random NumeroCasuale = new Random();
 
         //Metodi costruttori
-
-        private Random NumeroCasuale = new Random(); //Metodo costruttore della classe NumeroCasuale che permette di usare i metodi che generano numeri casuali.
 
         public OperazioniTessere(ToolStripMenuItem[] SceltaSetColori, ToolStripMenuItem[] SceltaSetCarte, Button[] TessereGioco, Label[] EtichetteGioco, Panel rimescolaTesserePanel, Image sfondoTesseraNascosta) //Metodo costruttore della classe OperazioniTessere.
         {
@@ -460,6 +458,8 @@ namespace MemoryApp
             this.sfondoTesseraNascosta = sfondoTesseraNascosta;
         }
         
+        //Altri metodi.
+
         public int[] OperazioniG2() //Metodo che permette di eseguire in automatico le operazioni di G2. 
         {
             EtichetteGioco[1].Text = "G2 sta giocando il suo turno...";

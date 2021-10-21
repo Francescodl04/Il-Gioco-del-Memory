@@ -156,21 +156,21 @@ namespace MemoryApp
             this.fioriToolStripMenuItem.Checked = true;
             this.fioriToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fioriToolStripMenuItem.Name = "fioriToolStripMenuItem";
-            this.fioriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fioriToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.fioriToolStripMenuItem.Text = "Fiori";
             this.fioriToolStripMenuItem.Click += new System.EventHandler(this.fioriToolStripMenuItem_Click);
             // 
             // animaliToolStripMenuItem
             // 
             this.animaliToolStripMenuItem.Name = "animaliToolStripMenuItem";
-            this.animaliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.animaliToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.animaliToolStripMenuItem.Text = "Animali";
             this.animaliToolStripMenuItem.Click += new System.EventHandler(this.animaliToolStripMenuItem_Click);
             // 
             // professoriToolStripMenuItem
             // 
             this.professoriToolStripMenuItem.Name = "professoriToolStripMenuItem";
-            this.professoriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.professoriToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.professoriToolStripMenuItem.Text = "Professori";
             this.professoriToolStripMenuItem.Visible = false;
             this.professoriToolStripMenuItem.Click += new System.EventHandler(this.professoriToolStripMenuItem_Click);
@@ -192,36 +192,36 @@ namespace MemoryApp
             this.bluToolStripMenuItem.Checked = true;
             this.bluToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.bluToolStripMenuItem.Name = "bluToolStripMenuItem";
-            this.bluToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.bluToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bluToolStripMenuItem.Text = "Blu";
             this.bluToolStripMenuItem.Click += new System.EventHandler(this.bluToolStripMenuItem_Click);
             // 
             // arancioToolStripMenuItem
             // 
             this.arancioToolStripMenuItem.Name = "arancioToolStripMenuItem";
-            this.arancioToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.arancioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arancioToolStripMenuItem.Text = "Arancio";
             this.arancioToolStripMenuItem.Click += new System.EventHandler(this.arancioToolStripMenuItem_Click);
             // 
             // gialloToolStripMenuItem
             // 
             this.gialloToolStripMenuItem.Name = "gialloToolStripMenuItem";
-            this.gialloToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.gialloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gialloToolStripMenuItem.Text = "Giallo";
             this.gialloToolStripMenuItem.Click += new System.EventHandler(this.gialloToolStripMenuItem_Click);
             // 
             // verdeToolStripMenuItem
             // 
             this.verdeToolStripMenuItem.Name = "verdeToolStripMenuItem";
-            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verdeToolStripMenuItem.Text = "Verde";
             this.verdeToolStripMenuItem.Click += new System.EventHandler(this.verdeToolStripMenuItem_Click);
             // 
             // iISViolaMarchesiniToolStripMenuItem
             // 
             this.iISViolaMarchesiniToolStripMenuItem.Name = "iISViolaMarchesiniToolStripMenuItem";
-            this.iISViolaMarchesiniToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.iISViolaMarchesiniToolStripMenuItem.Text = "IIS Viola-Marchesini";
+            this.iISViolaMarchesiniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iISViolaMarchesiniToolStripMenuItem.Text = "ITIS Ferruccio Viola";
             this.iISViolaMarchesiniToolStripMenuItem.Visible = false;
             this.iISViolaMarchesiniToolStripMenuItem.Click += new System.EventHandler(this.iISViolaMarchesiniToolStripMenuItem_Click);
             // 
