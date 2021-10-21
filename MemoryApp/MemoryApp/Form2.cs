@@ -41,7 +41,7 @@ namespace MemoryApp
 
         //Metodi relativi all'oggetto FormGioco (Form).
 
-        private void FormGioco_Load(object sender, EventArgs e)
+        private void FormGioco_Load(object sender, EventArgs e) //Operazioni eseguite al caricamento del form: viene generato casualmente il primo che deve giocare ed altre operazioni iniziali.
         {
             OperazioniTessere.AttivaDisattivaTessere(false);
             IDCarte = OperazioniTessere.GeneraTessereCasuali(codiceSetCarte);
@@ -52,9 +52,9 @@ namespace MemoryApp
                 OperazioniTessere.ModalitàSegreta();
             }
             AggiornaEtichette();
-        }
+        } 
 
-        private void FormGioco_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormGioco_FormClosing(object sender, FormClosingEventArgs e) //Mentre il form si sta chiudendo, visualizza il messaggio che chiede all'utente se è sicuro di uscire oppure no. 
         {
             if (chiusuraGioco == true)
             {
@@ -66,12 +66,12 @@ namespace MemoryApp
             }
         }
 
-        private void FormGioco_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormGioco_FormClosed(object sender, FormClosedEventArgs e) //Quando il form è chiuso, esce del tutto dall'applicazione. 
         {
             Application.Exit();
         }
 
-        private async void AggiornaEtichette()
+        private async void AggiornaEtichette() //Metodo che consente di aggiornare il testo degli oggetti Label contenuti nel form. 
         {
             EtichetteGioco[1].Text = "👋 Benvenuti nel gioco!";
             EtichetteGioco[2].Text = "⌚ Un attimo e sarà il caso a decidere chi comincerà per primo!";
@@ -306,7 +306,7 @@ namespace MemoryApp
             
         }
 
-        //Metodi che permetto lo svolgimento del gioco.
+        //Metodi che permettono lo svolgimento del gioco.
 
         public int G2()
         {
@@ -326,7 +326,7 @@ namespace MemoryApp
                 n = 0;
             }
             return n;
-        }
+        } //Metodo che contiene le operazioni da eseguire nel caso in cui si abbia un giocatore controllato dal computer.
 
         public void MostraImmagineTessera(int numeroTessera, Button tessera)
         {
@@ -343,7 +343,7 @@ namespace MemoryApp
                 PosizioneTessereCliccate[1] = numeroTessera;
                 ConfermaAbbinamento();
             }
-        }
+        } //Metodo che visualizza la parte nascosta delle tessere.
 
         private void ConfermaAbbinamento()
         {
@@ -386,7 +386,7 @@ namespace MemoryApp
             {
                 TessereCliccate[i] = null;
             }
-        }
+        } //Metodo che verifica se gli abbinamenti effettuati dai giocatori sono corretti o meno.
 
         public void ProclamazioneVincitore()
         {
@@ -409,7 +409,7 @@ namespace MemoryApp
             esciBtn.Visible = true;
             verifica = true;
 
-        }
+        } //Metodo richiamato nel caso in cui le tessere siano esaurite e ci sia bisogno di indicare il vincitore del turno.
 
         //Metodi relativi agli oggetti rimescolaTessereBtn e esciBtn (entrambi Button), che vengono visualizzati solamente alla fine di un turno e permettono di continuare la partita, oppure di uscire.
 
